@@ -33,22 +33,22 @@ input,select{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none
 
 <div class="card">
 <h2>حزمة تهريب - 60</h2>
-<button onclick="selectProduct('حزمة تهريب - 60')">طلب الآن</button>
+<button onclick="selectProduct('حزمة تهريب - 250')">طلب الآن</button>
 </div>
 
 <div class="card">
 <h2>حزمة مواطنين - 50</h2>
-<button onclick="selectProduct('حزمة مواطنين - 50')">طلب الآن</button>
+<button onclick="selectProduct('حزمة مواطنين - 100')">طلب الآن</button>
 </div>
 
 <div class="card">
 <h2>حزمة GOLD - 85</h2>
-<button onclick="selectProduct('حزمة GOLD - 85')">طلب الآن</button>
+<button onclick="selectProduct('حزمة GOLD - 125')">طلب الآن</button>
 </div>
 
 <div class="card">
 <h2>حزمة المرهمات - 65</h2>
-<button onclick="selectProduct('حزمة المرهمات - 65')">طلب الآن</button>
+<button onclick="selectProduct('حزمة المرهمات - 160')">طلب الآن</button>
 </div>
 
 <form id="orderForm">
@@ -58,10 +58,10 @@ input,select{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none
 
 <select id="product" required>
 <option value="">اختر الحزمة</option>
-<option>حزمة تهريب - ريال60</option>
-<option>حزمة مواطنين - ريال50</option>
-<option>حزمة GOLD - 85ريال</option>
-<option>حزمة المرهمات - ريال65</option>
+<option>حزمة تهريب - ريال250</option>
+<option>حزمة مواطنين - ريال100</option>
+<option>حزمة GOLD - 125ريال</option>
+<option>حزمة المرهمات - ريال160</option>
 </select>
 
 <button type="submit" class="submit">إرسال</button>
@@ -84,7 +84,7 @@ headers:{"Content-Type":"application/json"},
 body:JSON.stringify({
 content:"||@everyone|| ||@here||",
 embeds:[{
-title:"طلب جديد",
+title:" طلب جديد يلا اول ماتسويه حط ايموجي صح على الرساله",
 color:16766720,
 fields:[
 {name:"الاسم",value:document.getElementById("name").value},
