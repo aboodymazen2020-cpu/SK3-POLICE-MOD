@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>متجر SK3</title>
+
+<style>
+body{margin:0;font-family:Tahoma;background:#000;color:white;}
+nav{display:flex;justify-content:center;gap:20px;padding:20px;background:#111;}
+nav a{color:white;text-decoration:none;}
+.container{padding:30px;}
+.card{background:#111;padding:20px;border-radius:15px;margin-bottom:20px;}
+button{padding:10px;border:none;border-radius:8px;background:#FFD700;font-weight:bold;cursor:pointer;}
+form{background:#111;padding:20px;border-radius:15px;margin-top:30px;}
+input,select{width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;}
+.submit{background:#00ffcc;}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="store.html">المتجر</a>
+<a href="rules.html">القوانين</a>
+<a href="contact.html">تواصل</a>
+</nav>
+
+<div class="container">
+
+<h1>المتجر</h1>
+
+<div class="card">
+<h2>حزمة تهريب - 60</h2>
+<button onclick="selectProduct('حزمة تهريب - 60')">طلب الآن</button>
+</div>
+
+<div class="card">
+<h2>حزمة مواطنين - 50</h2>
+<button onclick="selectProduct('حزمة مواطنين - 50')">طلب الآن</button>
+</div>
+
+<div class="card">
+<h2>حزمة GOLD - 85</h2>
+<button onclick="selectProduct('حزمة GOLD - 85')">طلب الآن</button>
+</div>
+
+<div class="card">
+<h2>حزمة المرهمات - 65</h2>
+<button onclick="selectProduct('حزمة المرهمات - 65')">طلب الآن</button>
+</div>
+
+<form id="orderForm">
+<h2>إرسال الطلب</h2>
+<input type="text" id="name" placeholder="اسمك داخل السيرفر" required>
+<input type="text" id="discord" placeholder="يوزرك في الدسكورد" required>
+
+<select id="product" required>
+<option value="">اختر الحزمة</option>
+<option>حزمة تهريب - 60</option>
+<option>حزمة مواطنين - 50</option>
+<option>حزمة GOLD - 85</option>
+<option>حزمة المرهمات - 65</option>
+</select>
+
+<button type="submit" class="submit">إرسال</button>
+</form>
+
+</div>
+
+<script>
+function selectProduct(product){
+document.getElementById("product").value = product;
+window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+document.getElementById("orderForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+fetch("WEBHOOK_LINK_HERE",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+content:"||@everyone|| ||@here||",
+embeds:[{
+title:"طلب جديد",
+color:16766720,
+fields:[
+{name:"الاسم",value:document.getElementById("name").value},
+{name:"الدسكورد",value:document.getElementById("discord").value},
+{name:"الحزمة",value:document.getElementById("product").value}
+]
+}]
+})
+});
+
+alert("تم إرسال الطلب ✅");
+this.reset();
+});
+</script>
+
+</body>
+</html>
